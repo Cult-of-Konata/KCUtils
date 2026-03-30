@@ -20,6 +20,9 @@ public class BanIpCommand implements CommandExecutor {
     }
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NonNull @NotNull String[] args) {
+        if (!sender.isOp()) {
+            sender.sendMessage("§c You must be a server operator to use this command!");
+        }
         if (args.length == 0) {
             sender.sendMessage("§cUsage: /banip <IP or player> <reason>");
             return false;
