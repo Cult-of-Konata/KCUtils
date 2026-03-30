@@ -14,6 +14,7 @@ KCUtils is a PaperMC plugin for common utilities, related to the KonaCraft serve
 |---------|-------------|-------|------------|---------|
 | `/ban-ip` | Ban a player or IP | `/ban-ip <IP or player> [reason]` | `KCUtils.banip` | banip |
 | `/about` | Shows information about the plugin | `/about` | `KCUtils.about` | - |
+| `/warn` | Warn a player | `/warn <player> [reason]` | `KCUtils.warn` | - |
 
 ## Build
 
