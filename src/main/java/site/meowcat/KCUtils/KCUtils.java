@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import site.meowcat.KCUtils.commands.AboutCommand;
 import site.meowcat.KCUtils.commands.BanIpCommand;
 import site.meowcat.KCUtils.commands.WarnCommand;
+import site.meowcat.KCUtils.commands.WarningsCommand;
 
 public final class KCUtils extends JavaPlugin {
 
@@ -14,6 +15,7 @@ public final class KCUtils extends JavaPlugin {
         this.getCommand("about").setExecutor(new AboutCommand(this));
         this.getCommand("ban-ip").setExecutor(new BanIpCommand(this));
         this.getCommand("warn").setExecutor(new WarnCommand(warningManager));
+        this.getCommand("warnings").setExecutor(new WarningsCommand(warningManager));
     }
 
     @Override
