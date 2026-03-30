@@ -10,9 +10,10 @@ public final class KCUtils extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        WarningManager warningManager = new WarningManager();
         this.getCommand("about").setExecutor(new AboutCommand(this));
         this.getCommand("ban-ip").setExecutor(new BanIpCommand(this));
-        this.getCommand("warn").setExecutor(new WarnCommand());
+        this.getCommand("warn").setExecutor(new WarnCommand(warningManager));
     }
 
     @Override
