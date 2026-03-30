@@ -2,12 +2,13 @@ package site.meowcat.KCUtils;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.plugin.java.JavaPlugin;
+import site.meowcat.KCUtils.commands.AboutCommand;
 
 public final class KCUtils extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        this.getCommand("about").setExecutor(new AboutCommand(this));
     }
 
     @Override
