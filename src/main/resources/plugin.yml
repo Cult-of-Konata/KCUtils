@@ -20,3 +20,7 @@ commands:
     description: Shows information about the plugin
     usage: /about
     permission: KCUtils.about
+  warn:
+    description: Warn a player
+    usage: /warn <player> [reason]
+    permission: KCUtils.warn
