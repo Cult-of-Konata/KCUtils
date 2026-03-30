@@ -1,0 +1,11 @@
+name: KCUtils
+description: $description
+prefix: [ KCUtil ]
+version: '$version'
+
+main: site.meowcat.KCUtils.KCUtils
+api-version: '1.21'
+load: POSTWORLD
+
+authors: [ meowcat767, weirdplop ]
+website: https://discord.gg/konata
