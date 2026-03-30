@@ -13,5 +13,10 @@ website: https://discord.gg/konata
 commands:
   ban-ip:
     description: Ban a player or IP
-    usage: /ban-ip <IP or player> <reason>
+    usage: /ban-ip <IP or player> [reason]
     permission: KCUtils.banip
+    aliases: [banip]
+  about:
+    description: Shows information about the plugin
+    usage: /about
+    permission: KCUtils.about
