@@ -20,8 +20,9 @@ public class BanIpCommand implements CommandExecutor {
     }
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NonNull @NotNull String[] args) {
-        if (!sender.isOp()) {
+        if (!sender.isOp() || !sender.hasPermission("kcutils.banip")) {
             sender.sendMessage("§c You must be a server operator to use this command!");
+            return false;
         }
         if (args.length == 0) {
             sender.sendMessage("§cUsage: /banip <IP or player> <reason>");
