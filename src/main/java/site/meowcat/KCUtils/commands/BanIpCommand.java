@@ -20,6 +20,30 @@ public class BanIpCommand implements CommandExecutor {
     }
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NonNull @NotNull String[] args) {
-        return false;
+        if (args.length == 0) {
+            sender.sendMessage("§cUsage: /banip <IP or player> <reason>");
+            return false;
+        }
+        String target = args[0];
+        String reason = args.length > 1 ? String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length)) : "No reason provided.";
+        String ipToBan;
+
+        // check if the target is an online player
+        Player player = Bukkit.getPlayerExact(target);
+        if (player != null) {
+            ipToBan = player.getAddress().getAddress().getHostAddress();
+        } else {
+            // otherwise just assume the argument is an IP address
+            ipToBan = target;
+        }
+
+        // ban the IP
+        BanList banList = Bukkit.getBanList(BanList.Type.IP);
+        banList.addBan(ipToBan, reason, (Date) null, sender.getName());
+        Bukkit.getOnlinePlayers().stream()
+                .filter(p -> p.getAddress().getAddress().getHostAddress().equals(ipToBan))
+                .forEach(p -> p.kickPlayer("§cYou have been banned: " + reason));
+        sender.sendMessage("§aBanned IP §f" + ipToBan + "§afor reason: §f" + reason);
+        return true;
     }
 }
