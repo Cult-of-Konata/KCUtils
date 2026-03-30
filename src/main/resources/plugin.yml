@@ -24,3 +24,8 @@ commands:
     description: Warn a player
     usage: /warn <player> [reason]
     permission: KCUtils.warn
+  warnings:
+    description: Shows a player's warnings
+    usage: /warnings <player>
+    permission: KCUtils.warnings
+
