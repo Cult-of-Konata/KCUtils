@@ -7,7 +7,19 @@ plugins {
     id("io.papermc.hangar-publish-plugin") version "0.1.2"
 }
 
-version = "1.0.0"
+val pageContent = project.file("README.md").readText()
+val runNumber = providers.environmentVariable("GITHUB_RUN_NUMBER").orNull
+val runAttempt = providers.environmentVariable("GITHUB_RUN_ATTEMPT").orNull ?: "1"
+val shortSha = providers.environmentVariable("GITHUB_SHA")
+    .map { sha -> sha.take(7) }
+    .orNull ?: "dev"
+
+version = if (runNumber != null) {
+    "1.0.$runNumber.$runAttempt-$shortSha"
+} else {
+    "1.0.0-SNAPSHOT"
+}
+
 description = "KCUtils"
 
 repositories {
@@ -61,6 +73,10 @@ hangarPublish {
                     .split(",")
                     .map { it.trim() }
                 platformVersions.set(versions)
+
+                pages {
+                    resourcePage(pageContent)
+                }
 
             }
         }
