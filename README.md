@@ -1,4 +1,10 @@
 # KCUtils
+[![Build and Release](https://github.com/Cult-of-Konata/KCUtils/actions/workflows/build.yml/badge.svg)](https://github.com/Cult-of-Konata/KCUtils/actions/workflows/build.yml)
+[![Publish to Hangar](https://github.com/Cult-of-Konata/KCUtils/actions/workflows/publish.yml/badge.svg)](https://github.com/Cult-of-Konata/KCUtils/actions/workflows/publish.yml)
+
+[![KCUtils](https://img.shields.io/hangar/dt/KCUtils?link=https%3A%2F%2Fhangar.papermc.io%2FCult-of-Konata%2FKCUtils&style=flat)](https://hangar.papermc.io/Cult-of-Konata/KCUtils)
+[![KCUtils](https://img.shields.io/hangar/stars/KCUtils?link=https%3A%2F%2Fhangar.papermc.io%2FCult-of-Konata%2FKCUtils&style=flat)](https://hangar.papermc.io/Cult-of-Konata/KCUtils)
+[![KCUtils](https://img.shields.io/hangar/views/KCUtils?link=https%3A%2F%2Fhangar.papermc.io%2FCult-of-Konata%2FKCUtils&style=flat)](https://hangar.papermc.io/Cult-of-Konata/KCUtils)
 
 KCUtils is a PaperMC plugin for common utilities, related to the KonaCraft server.
 
