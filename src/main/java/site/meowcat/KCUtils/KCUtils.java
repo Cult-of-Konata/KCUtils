@@ -1,6 +1,7 @@
 package site.meowcat.KCUtils;
 
 import net.kyori.adventure.text.Component;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 import site.meowcat.KCUtils.commands.AboutCommand;
 import site.meowcat.KCUtils.commands.BanIpCommand;
