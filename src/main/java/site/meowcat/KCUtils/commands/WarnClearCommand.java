@@ -5,6 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.NonNull;
 import site.meowcat.KCUtils.WarningManager;
@@ -26,7 +27,7 @@ public class WarnClearCommand implements CommandExecutor {
             return true;
         }
 
-        Player target = Bukkit.getPlayerExact(args[0]);
+        OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
 
         if (target == null) {
             sender.sendMessage("§cPlayer not found!");

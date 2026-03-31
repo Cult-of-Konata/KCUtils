@@ -1,6 +1,7 @@
 package site.meowcat.KCUtils.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import site.meowcat.KCUtils.WarningManager;
@@ -26,7 +27,7 @@ public class WarnCommand implements CommandExecutor {
             return true;
         }
 
-        Player target = Bukkit.getPlayerExact(args[0]);
+        OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
 
         if (target == null) {
             sender.sendMessage("§cPlayer not found.");
@@ -38,8 +39,10 @@ public class WarnCommand implements CommandExecutor {
         int count = warningManager.getWarnings(target.getUniqueId());
 
         sender.sendMessage("§eWarned §f" + target.getName() + " §e(" + count + " warnings)");
-        target.sendMessage("§cYou have been warned!");
-        target.sendMessage("§7Total warnings: §f" + count);
+        if (target.isOnline()) {
+            target.getPlayer().sendMessage("§cYou have been warned!");
+            target.getPlayer().sendMessage("§7Total warnings: §f" + count);
+        }
 
         return true;
     }
