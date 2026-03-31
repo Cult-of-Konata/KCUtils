@@ -8,7 +8,7 @@ plugins {
 }
 
 version = "1.0.0"
-description = "My awesome plugin"
+description = "KCUtils"
 
 repositories {
     mavenCentral()
