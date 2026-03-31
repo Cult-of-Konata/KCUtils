@@ -13,7 +13,7 @@ public final class KCUtils extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        WarningManager warningManager = new WarningManager();
+        WarningManager warningManager = new WarningManager(this);
         Metrics metrics = new Metrics(this, 30511);
         this.getCommand("about").setExecutor(new AboutCommand(this));
         this.getCommand("ban-ip").setExecutor(new BanIpCommand(this));
