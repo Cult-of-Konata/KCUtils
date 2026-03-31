@@ -28,4 +28,8 @@ commands:
     description: Shows a player's warnings
     usage: /warnings <player>
     permission: KCUtils.warnings
+  warnclear:
+    description: Clears a player's warnings
+    usage: /warnclear <player>
+    permission: KCUtils.warnclear
 
