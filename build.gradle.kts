@@ -1,3 +1,5 @@
+import io.papermc.hangarpublishplugin.model.Platforms
+
 plugins {
     id("java-library")
     id("xyz.jpenilla.run-paper") version "3.0.2"
@@ -35,6 +37,32 @@ tasks {
         val props = mapOf("version" to version, "description" to project.description)
         filesMatching("plugin.yml") {
             expand(props)
+        }
+    }
+}
+
+hangarPublish {
+    publications.register("plugin") {
+        version.set(project.version as String)
+        channel.set("Snapshot") // We're using the 'Snapshot' channel
+        // TODO: Edit the project name to match your Hangar project
+        id.set("hangar-project")
+        apiKey.set(System.getenv("HANGAR_API_TOKEN"))
+        platforms {
+            // TODO: Use the correct platform(s) for your plugin
+            register(Platforms.PAPER) {
+                // TODO: If you're using ShadowJar, replace the jar lines with the appropriate task:
+                //   jar.set(tasks.shadowJar.flatMap { it.archiveFile })
+                // Set the JAR file to upload
+                jar.set(tasks.jar.flatMap { it.archiveFile })
+
+                // Set platform versions from gradle.properties file
+                val versions: List<String> = (property("paperVersion") as String)
+                    .split(",")
+                    .map { it.trim() }
+                platformVersions.set(versions)
+
+            }
         }
     }
 }
