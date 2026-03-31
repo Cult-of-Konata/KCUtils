@@ -46,7 +46,7 @@ hangarPublish {
         version.set(project.version as String)
         channel.set("Snapshot") // We're using the 'Snapshot' channel
         // TODO: Edit the project name to match your Hangar project
-        id.set("hangar-project")
+        id.set("Cult-of-Konata/KCUtils")
         apiKey.set(System.getenv("HANGAR_API_TOKEN"))
         platforms {
             // TODO: Use the correct platform(s) for your plugin
