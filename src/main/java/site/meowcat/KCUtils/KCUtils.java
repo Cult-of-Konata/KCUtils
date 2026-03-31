@@ -7,11 +7,13 @@ import site.meowcat.KCUtils.commands.BanIpCommand;
 import site.meowcat.KCUtils.commands.WarnCommand;
 import site.meowcat.KCUtils.commands.WarningsCommand;
 
+
 public final class KCUtils extends JavaPlugin {
 
     @Override
     public void onEnable() {
         WarningManager warningManager = new WarningManager();
+        Metrics metrics = new Metrics(this, 30511);
         this.getCommand("about").setExecutor(new AboutCommand(this));
         this.getCommand("ban-ip").setExecutor(new BanIpCommand(this));
         this.getCommand("warn").setExecutor(new WarnCommand(warningManager));
