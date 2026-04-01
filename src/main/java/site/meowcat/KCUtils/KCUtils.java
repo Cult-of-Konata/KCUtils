@@ -3,7 +3,9 @@ package site.meowcat.KCUtils;
 import java.util.logging.Logger;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
+import org.bukkit.event.EventHandler;
 import org.bukkit.plugin.java.JavaPlugin;
+import site.meowcat.KCUtils.checker.UpdateChecker;
 import site.meowcat.KCUtils.commands.*;
 
 
@@ -12,6 +14,7 @@ public final class KCUtils extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("KCUtils is now enabled!");
+        new UpdateChecker(this).check();
         // Note that all commands that need WarningManager have "warningManager" as a parameter.
         WarningManager warningManager = new WarningManager(this);
         createCharts();
@@ -29,6 +32,10 @@ public final class KCUtils extends JavaPlugin {
         metrics.addCustomChart(new SimplePie("used_language", () -> {
             return getConfig().getString("language", "English");
         }));
+    }
+
+    @EventHandler
+    public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent event) {
     }
 
     @Override
