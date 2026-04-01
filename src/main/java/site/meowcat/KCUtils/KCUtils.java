@@ -36,6 +36,14 @@ public final class KCUtils extends JavaPlugin {
 
     @EventHandler
     public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent event) {
+        UpdateChecker checker = new UpdateChecker(this);
+        if (!event.getPlayer().isOp()) return;
+
+        if (checker.isUpdateAvailable()) {
+            event.getPlayer().sendMessage("§c KCUtils update available!");
+            event.getPlayer().sendMessage("§7 Latest version: " + checker.getLatestVersion() + "");
+            event.getPlayer().sendMessage("§7https://hangar.papermc.io/Cult-of-Konata/KCUtils");
+        }
     }
 
     @Override
