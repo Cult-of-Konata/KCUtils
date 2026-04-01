@@ -12,7 +12,7 @@ KCUtils is a PaperMC plugin for common utilities, related to the KonaCraft serve
 
 - IP Banning with reason support.
 - Plugin information display.
-- Built for Minecraft 1.21.1.
+- Built for Minecraft 1.21.11.
 
 ## Commands
 
