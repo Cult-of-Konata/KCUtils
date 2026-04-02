@@ -37,6 +37,10 @@ java {
 }
 
 tasks {
+    shadowJar {
+        relocate("org.bstats", "site.meowcat.KCUtils.bstats")
+    }
+
     runServer {
         // Configure the Minecraft version for our task.
         // This is the only required configuration besides applying the plugin.
@@ -66,7 +70,7 @@ hangarPublish {
                 // TODO: If you're using ShadowJar, replace the jar lines with the appropriate task:
                 //   jar.set(tasks.shadowJar.flatMap { it.archiveFile })
                 // Set the JAR file to upload
-                jar.set(tasks.jar.flatMap { it.archiveFile })
+                jar.set(tasks.shadowJar.flatMap { it.archiveFile })
 
                 // Set platform versions from gradle.properties file
                 val versions: List<String> = (property("paperVersion") as String)

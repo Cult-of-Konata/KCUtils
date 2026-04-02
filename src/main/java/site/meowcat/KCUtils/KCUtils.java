@@ -4,17 +4,18 @@ import java.util.logging.Logger;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.SimplePie;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import site.meowcat.KCUtils.checker.UpdateChecker;
 import site.meowcat.KCUtils.commands.*;
 
 
-public final class KCUtils extends JavaPlugin {
-    private static final Logger LOGGER = Logger.getLogger("Minecraft");
+public final class KCUtils extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getLogger().info("KCUtils is now enabled!");
         new UpdateChecker(this).check();
+        getServer().getPluginManager().registerEvents(this, this);
         // Note that all commands that need WarningManager have "warningManager" as a parameter.
         WarningManager warningManager = new WarningManager(this);
         createCharts();
