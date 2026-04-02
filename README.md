@@ -23,6 +23,7 @@ KCUtils is a PaperMC plugin for common utilities, related to the KonaCraft serve
 | `/warn` | Warn a player | `/warn <player> [reason]` | `KCUtils.warn` | - |
 | `/warnings` | Shows a player's warnings | `/warnings <player>` | `KCUtils.warnings` | - |
 | `/warnclear` | Clears a player's warnings | `/warnclear <player>` | `KCUtils.warnclear` | - |
+| `/kcutilsupdate` | Checks for updates for KCUtils | `/kcutilsupdate` | `KCUtils.update` | - |
 
 ## Build
 
