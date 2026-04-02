@@ -24,6 +24,7 @@ public final class KCUtils extends JavaPlugin {
         this.getCommand("warn").setExecutor(new WarnCommand(warningManager));
         this.getCommand("warnings").setExecutor(new WarningsCommand(warningManager));
         this.getCommand("warnclear").setExecutor(new WarnClearCommand(warningManager));
+        this.getCommand("kcutilsupdate").setExecutor(new UpdateCommand(new UpdateChecker(this))); // if it ain't broke don't fix it
         getLogger().info("Commands registered!");
     }
 
