@@ -33,8 +33,15 @@ public class WarnCommand implements CommandExecutor {
             sender.sendMessage("§cPlayer not found.");
             return true;
         }
+        String reason = args.length >= 2
+                ? String.join(" ", java.util.Arrays.copyOfRange(args, 1, args.length))
+                : "No reason provided";
 
-        warningManager.addWarning(target.getUniqueId());
+        warningManager.addWarning(
+                target.getUniqueId(),
+                reason,
+                sender.getName()
+        );
 
         int count = warningManager.getWarnings(target.getUniqueId());
 
