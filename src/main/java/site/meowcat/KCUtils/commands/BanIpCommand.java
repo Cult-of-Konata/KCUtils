@@ -47,7 +47,7 @@ public class BanIpCommand implements CommandExecutor {
         Bukkit.getOnlinePlayers().stream()
                 .filter(p -> p.getAddress().getAddress().getHostAddress().equals(ipToBan))
                 .forEach(p -> p.kickPlayer("§cYou have been banned: " + reason));
-        sender.sendMessage("§aBanned IP §f" + ipToBan + "§afor reason: §f" + reason);
+        sender.sendMessage("§aBanned IP:  §f" + ipToBan + "§afor reason: §f" + reason);
         return true;
     }
 }
