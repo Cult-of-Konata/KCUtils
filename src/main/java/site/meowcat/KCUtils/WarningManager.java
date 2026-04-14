@@ -39,6 +39,7 @@ public class WarningManager {
                 long time = (long) map.get("timestamp");
                 entries.add(new WarnEntry(reason, mod, time));
             }
+            warnings.put(uuid, entries);
         }
     }
 
@@ -66,7 +67,7 @@ public class WarningManager {
     }
 
     public int getWarnings(UUID uuid) {
-        return warnings.getOrDefault(uuid, 0);
+        return warnings.getOrDefault(uuid, new ArrayList<>()).size();
     }
 
     public void addWarning(UUID uuid, String reason, String moderator) {

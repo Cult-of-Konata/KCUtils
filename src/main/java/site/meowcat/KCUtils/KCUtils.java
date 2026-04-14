@@ -11,13 +11,14 @@ import site.meowcat.KCUtils.commands.*;
 
 
 public final class KCUtils extends JavaPlugin implements Listener {
+    private WarningManager warningManager;
     @Override
     public void onEnable() {
         getLogger().info("KCUtils is now enabled!");
         new UpdateChecker(this).check();
         getServer().getPluginManager().registerEvents(this, this);
         // Note that all commands that need WarningManager have "warningManager" as a parameter.
-        WarningManager warningManager = new WarningManager(this);
+        warningManager = new WarningManager(this);
         createCharts();
         getLogger().info("Registering commands...");
         this.getCommand("about").setExecutor(new AboutCommand(this));
@@ -51,6 +52,9 @@ public final class KCUtils extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         getLogger().info("KCUtils is now shutting down...");
+        if (warningManager != null) {
+            warningManager.save();
+        }
         getLogger().info("KCUtils has been disabled!");
     }
 }
